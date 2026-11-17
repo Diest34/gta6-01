@@ -1,27 +1,29 @@
 # VERIFICATION — Sunset Keys (gta6-01)
 
 > **RECORDED REBUILD.** This entry was rebuilt fresh in a session recorded by the
-> kit (`node cli/makefun.mjs record --competition gta6-01`), begun after the
-> competition opened at 2026-11-17T15:00:00Z (22:00 WIB). Every counted file was
-> rewritten by hand in this session — no file was copied, restored, or moved from
-> the earlier unrecorded draft (no `cp`, `rsync`, `git checkout`, `git restore`,
-> or `mv`); the draft was read only as a reference for the exact contents. The
-> four screenshots are fresh renders captured in this session over CDP. Nothing
-> was submitted, signed, or paid from this session; the GitHub repository was
-> created after the opening and the entry is pushed there for submission.
+> kit (`node cli/makefun.mjs record --competition gta6-01`, recording
+> 01a1ea2b-e03f-72f3-a80f-c6f369f8b4a9, begun after the competition opened at
+> 2026-11-17T15:00:00Z / 22:00 WIB). Every counted file was rewritten by hand in
+> this session — no file was copied, restored, or moved from any earlier work
+> (no `cp`, `rsync`, `git checkout`, `git restore`, or `mv`); the earlier files
+> were read only as a reference for the exact contents. The four screenshots are
+> fresh renders captured in this session over CDP. Nothing was submitted, signed,
+> or paid from this session; the GitHub repository was created after the opening
+> and the entry is pushed there for submission.
 
 ## What was verified
 
-- **main.ts twice, byte-identical.** `MAKEFUN_OUTPUT_DIR=outA node main.ts` and
-  `MAKEFUN_OUTPUT_DIR=outB node main.ts` (outA/outB under the scratch dir, not
-  the repo), then `diff -r outA outB` — clean, no differences. Output:
-  1,111,150 bytes total; `dossier.json` 623,437 bytes (under the 1.5 MiB cap).
+- **main.ts twice, byte-identical.** `MAKEFUN_OUTPUT_DIR=outC node main.ts` and
+  `MAKEFUN_OUTPUT_DIR=outD node main.ts` (outC/outD under the scratch dir
+  ~/workspace/makefun/.shot/, not the repo), then `diff -r outC outD` — clean,
+  no differences. Output: 1,111,150 bytes total; `dossier.json` 623,437 bytes
+  (under the 1.5 MiB cap).
 - **Kit pre-submit check** (`node cli/makefun.mjs check --repo
   ~/workspace/makefun/gta6-01`, run from inside the kit dir): 4 passed, 0 failed,
   16 skipped, 5 checked at submission. Passed: `competition_open` (now between
   the opening 2026-11-17T15:00:00Z and the deadline 2026-11-24T15:00:00Z),
-  `snapshot` (30 files, 562,010 bytes at the recorded rebuild commit
-  6eb32b50f85dac4f146c2ac3a07b7945ace31fdd — re-run after the commit, all 4 local
+  `snapshot` (30 files, 562,070 bytes at the recorded rebuild commit
+  d8dcb6a529fbe086df1bfac4d404d3e189e9a6a5 — re-run after the commit, all 4 local
   checks still pass),
   `license_osi` (MIT), `entrypoint` (main.ts, node22). The 5 "at submission"
   rows (repo_public, repo_owner, repo_created_after_open, commit_in_repo,
@@ -32,8 +34,7 @@
   waiting for `window.__shotReady` before each capture (the plain `--screenshot`
   flag captured a blank frame before the module painted — see the CDP helper in
   the rebuild notes). One environment quirk: `--window-size=1280,720` alone
-  yields a 1280x577 viewport in headless Chrome here (the draft's renders were
-  1280x577 for the same reason), so the capture script sets
+  yields a 1280x577 viewport in headless Chrome here, so the capture script sets
   `Emulation.setDeviceMetricsOverride` to 1280x720 before navigating. All four
   are true 1280x720 JPEG, each under 256 KiB:
   - `screenshots/1-start.jpg` — 92,728 bytes, title screen over the living city.
